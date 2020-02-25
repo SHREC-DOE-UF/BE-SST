@@ -3,7 +3,7 @@
 
 #include<sst/core/event.h>
 #include <queue>
-#include</home/vol-ccmt2/local/packages/boost-1.56/include/boost/function.hpp>
+#include<boost/function.hpp>
 
 namespace SST {
 namespace BEComponent {
