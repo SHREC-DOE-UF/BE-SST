@@ -18,10 +18,7 @@ Mailbox( "BGQ-core", "unwait", lambda source, target, size, tag: [source],
 Component( "BGQ-network" )
 Attribute( "BGQ-network", "usage", 0.0 )
 Operation( "BGQ-network", "transfer", "comm_test1.csv", "linear",
-           Loiter( "usage", "==", 0.0),
-           Modify( "usage", 1.0 ),
-           Dawdle( Outputs(0) ),
-           Modify( "usage", 0.0 ) )
+           Dawdle( Outputs(0) ))
 
 Mailbox( "BGQ-network", "transfer", lambda source, target, size, tag: [size],
          OnAll )

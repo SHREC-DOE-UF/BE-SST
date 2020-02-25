@@ -11,27 +11,21 @@ Ordinal( "BGQ-core", "mpi.commRank" )
 Relation( "BGQ-core", "BGQ-core", "cpu", "self" )
 Attribute( "BGQ-core", "usage", 0.0 )
 
-Operation( "BGQ-core", "wait", NoLookup,
+Operation( "BGQ-core", "wait", NoLookup, None,
            RecvWait(True))
-Operation( "BGQ-core", "unwait", NoLookup,
+Operation( "BGQ-core", "unwait", NoLookup, None,
            Recv(True))
 
 Mailbox( "BGQ-core", "unwait", lambda source, target, size, tag: [source],
          OnTarget )
 
-Operation( "BGQ-core", "computeA", "computeA.csv",
-           Loiter( "usage", "==", 0.0),
-           Modify( "usage", 1.0 ),
-           Dawdle( Outputs(0) ),
-           Modify( "usage", 0.0 ) )
+Operation( "BGQ-core", "computeA", "computeA.csv", "linear",
+           Dawdle( Outputs(0) ))
 
 Component( "BGQ-network" )
 Attribute( "BGQ-network", "usage", 0.0 )
-Operation( "BGQ-network", "transfer", "comm_test1.csv",
-           Loiter( "usage", "==", 0.0),
-           Modify( "usage", 1.0 ),
-           Dawdle( Outputs(0) ),
-           Modify( "usage", 0.0 ) )
+Operation( "BGQ-network", "transfer", "comm_test1.csv", "linear",
+           Dawdle( Outputs(0) ))
 
 Mailbox( "BGQ-network", "transfer", lambda source, target, size, tag: [size],
          OnAll )
