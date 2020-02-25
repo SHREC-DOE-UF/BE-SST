@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/g/g90/aravind/scratch/src/sst-elements-library-6.0.0/src/sst/elements/behavioralEmulation/tests/test_beComponent.py", line 21, in <module>
-    sim = Simulator(system_config)
-  File "simulator_build.py", line 644, in __init__
-    self.new(self.filename)
-  File "simulator_build.py", line 753, in new
-    execfile(filename)
-IOError: [Errno 2] No such file or directory: 'vulcan-proper-es6ec64np16.py'
-FATAL: SSTPythonModel Execution of model construction function failed.
