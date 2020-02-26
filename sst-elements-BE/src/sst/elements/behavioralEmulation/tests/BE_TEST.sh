@@ -26,7 +26,7 @@ fi
 string=$(grep "simulated time:" test_output.txt)	#echo "${string#*:}"
 extractedSimTime=$(echo $string | sed -e 's/Simulation is complete, simulated time: \(.*\) s/\1/')
 
-if [[ $extractedSimTime = "205.1" ]]
+if [[ $extractedSimTime = "204.8" ]]
 then
 	echo "Communication test case 1 ---- PASS _/"
 else
@@ -37,7 +37,7 @@ fi
 string=$(grep "simulated time:" test_output.txt)	#echo "${string#*:}"
 extractedSimTime=$(echo $string | sed -e 's/Simulation is complete, simulated time: \(.*\) s/\1/')
 
-if [[ $extractedSimTime = "153.6" ]]
+if [[ $extractedSimTime = "1.2" ]]
 then
 	echo "Communication test case 2 ---- PASS _/"
 else
@@ -48,7 +48,7 @@ fi
 string=$(grep "simulated time:" test_output.txt)	#echo "${string#*:}"
 extractedSimTime=$(echo $string | sed -e 's/Simulation is complete, simulated time: \(.*\) s/\1/')
 
-if [[ $extractedSimTime = "102.4" ]]
+if [[ $extractedSimTime = "6.4" ]]
 then
 	echo "Communication test case 3 ---- PASS _/"
 else
