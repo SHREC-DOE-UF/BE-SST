@@ -100,6 +100,6 @@ cd src/sst/elements/behavioralEmulation/tests/
 ### Refer to the following papers for more information on BE [1] and BE-SST [2]:  
 [1] Kumar N., Pascoe C., Hajas C., Lam H., Stitt G., George A. (2016) Behavioral Emulation for Scalable Design-Space Exploration of Algorithms and Architectures. In: Taufer M., Mohr B., Kunkel J. (eds) High Performance Computing. ISC High Performance 2016. Lecture Notes in Computer Science, vol 9945. Springer, Cham. https://link.springer.com/chapter/10.1007/978-3-319-46079-6_1  
 [2] Ajay Ramaswamy, Nalini Kumar, Aravind Neelakantan, Herman Lam, and Greg Stitt. 2018. Scalable Behavioral Emulation of Extreme-Scale Systems Using Structural Simulation Toolkit. In Proceedings of the 47th International Conference on Parallel Processing (ICPP 2018). Association for Computing Machinery, New York, NY, USA, Article 17, 1–11. DOI:https://doi.org/10.1145/3225058.3225124  
-*If you consider using this work, please site the above papers.*
+*If you consider using this work, please cite the above papers.*
 
 For any questions regarding the simulator, contact **Aravind Neelakantan** at aravindneela@ufl.edu
