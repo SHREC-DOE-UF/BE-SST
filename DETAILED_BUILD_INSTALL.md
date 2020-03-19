@@ -177,13 +177,13 @@ $ export PATH=$SST_ELEMENTS_HOME/bin:$PATH
 ### Testing BE-SST  
 Assuming you are in the `sst-elements-BE` directory:  
 ```
-\# Navigate to the [tests](src/sst/elements/behavioralEmulation/tests/) folder in `sst-elements-BE`  
+\# Navigate to the tests folder  
 cd sst-elements-BE/src/sst/elements/behavioralEmulation/tests/
 
 \# Version -- Simple sanity test  
 sst --version
 
-\# Running the test script for BE to check its functioning correctly  
+\# Running the test script for BE to check its functional correctness  
 ./BE_TEST.sh
 
 \# Running a test configuration to obtain a simulated time   
