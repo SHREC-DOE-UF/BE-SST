@@ -5,6 +5,8 @@ BE-SST is a parallel and scalable coarse-grained simulator that employs statisti
 
 ## Build and Run
 
+This is a quick start guide for BE-SST. For more detailed and ste-by-step instructions on how to build, install and run BE-SST, refer to [DETAILED_BUILD_INSTALL.md](DETAILED_BUILD_INSTALL.md). 
+
 #### Following dependencies are required to build and run BE-SST: 
 1. gcc 4.7 and newer  
 2. python 2 (anything in 2.7 branch)  
@@ -14,7 +16,8 @@ BE-SST is a parallel and scalable coarse-grained simulator that employs statisti
 4. autotools (libtool, autoconf, automake)  
 5. [OpenMPI 2.1.3](http://www.open-mpi.org/software/ompi/v2.1/) *(strongly recommended)*   
 6. [Boost 1.56](http://sourceforge.net/projects/boost/files/boost/1.56.0/)  
-**Note:** OpenMPI 2.1.3 and Boost 1.56 installation steps are listed in BE-SST build and installation document
+
+> **_Note:_** OpenMPI 2.1.3 and Boost 1.56 installation steps are listed [DETAILED_BUILD_INSTALL.md](DETAILED_BUILD_INSTALL.md)
 
 ### Example Build and Install Directories
 
@@ -31,21 +34,66 @@ These instructions will use the following conventions (the user can adjust these
     - `$HOME/local`  
     - `$HOME/local/packages`  
 
-Installation and build process for OpenMPI 2.1.3, Boost 1.56, `sst-core-devel` and `sst-element-BE` are listed in the BE-SST installation and build guide.docx. Refer to this document for detailed step-by-step instruction.
+### Basic Build and Install
 
-### Testing BE-SST  
-Assuming you are in the top directory where `sst-core-devel` and `sst-elements-BE` directories are present:  
-\# Navigate to the [tests](sst-elements-BE/src/sst/elements/behavioralEmulation/tests/) folder in `sst-elements-BE`  
-cd sst-elements-BE/src/sst/elements/behavioralEmulation/tests/
-
-\# Version -- Simple sanity test  
-sst --version
-
-\# Running the test script for BE to check its functioning correctly  
-./BE_TEST.sh
-
-\# Running a test configuration to obtain a simulated time   
+1. Obtain `sst-core-devel` and `sst-elements-BE` from [this](https://github.com/SHREC-DOE-UF/BE-SST) github repo.  
+2. Place `sst-core-devel` and `sst-elements-BE` in `$HOME/scratch/src` directory.  
+3. Change directory to the SST-Core directory.  
+```bash
+cd $HOME/scratch/src/sst-core-devel  
+```
+4. Run the `autogen.sh` script to setup the configure for SST-core  
+```bash
+./autogen.sh  
+```
+5. Configure SST-Core.  
+```bash
+./configure --prefix=$HOME/local/sst-core-devel  
+```
+6. Compile SST-Core.  
+```bash
+make all  
+```
+7. Install SST-Core.  
+```bash
+make install  
+```
+8. Change directory to `sst-elements-BE` directory  
+```bash
+cd $HOME/scratch/src/sst-elements-BE  
+```
+9. Run the `autogen.sh` script to setup the configure for BE element.  
+```bash
+./autogen.sh  
+```
+10. Configure BE element.  
+```bash
+./configure --prefix=$HOME/local/sst-elements-BE --with-sst-core=$SST_CORE_HOME --with-boost=$BOOST_HOME  
+```
+11. Compile BE element.  
+```bash
+make all  
+```
+12. Install BE element.  
+```bash
+make install  
+```
+13. Verify SST Operation with a very simple sanity test **(Note: Path to sst executable must be properly setup.)**  
+```bash
+sst --version  
+```
+14. Navigate to the [tests](sst-elements-BE/src/sst/elements/behavioralEmulation/tests/) folder  
+```bash
+cd src/sst/elements/behavioralEmulation/tests/  
+```
+15. Running the test script for BE to check its functional correctness  
+```bash
+./BE_TEST.sh  
+```
+16. Running a test configuration to obtain a simulated time  
+```bash
 ./BE_RUN.sh -c testConfig.py  
+```
 
 ---
 
