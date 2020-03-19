@@ -5,7 +5,7 @@ BE-SST is a parallel and scalable coarse-grained simulator that employs statisti
 
 ## Build and Run
 
-This is a quick start guide for BE-SST. For more detailed and ste-by-step instructions on how to build, install and run BE-SST, refer to [DETAILED_BUILD_INSTALL.md](DETAILED_BUILD_INSTALL.md). 
+This is a quick start guide for BE-SST. For more detailed and step-by-step instructions on how to build, install and run BE-SST, refer to [DETAILED_BUILD_INSTALL.md](DETAILED_BUILD_INSTALL.md). 
 
 #### Following dependencies are required to build and run BE-SST: 
 1. gcc 4.7 and newer  
