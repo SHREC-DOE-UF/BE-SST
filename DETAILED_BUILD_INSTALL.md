@@ -162,7 +162,7 @@ export SST_ELEMENTS_HOME=$HOME/local/sstelements-devel
 ```
 `4.` Configure SST-Elements, being sure to make `configure` reference the location of SST-Element-BE’s local prerequisite packages.  
 ```bash
-./configure --prefix=$SST_ELEMENTS_HOME --with-sst-core=$SST_CORE_HOME –-with-boost=$BOOST_HOME  
+./configure --prefix=$SST_ELEMENTS_HOME --with-sst-core=$SST_CORE_HOME --with-boost=$BOOST_HOME  
 ```
 `5.` Build and install SST-ELEMENTS (This will register SST-Elements with the SST-Core)  
 ```bash
