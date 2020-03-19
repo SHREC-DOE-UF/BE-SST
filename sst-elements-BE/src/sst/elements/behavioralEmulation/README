@@ -1,19 +1,8 @@
-README for simpleElementExample
--------------------------------
+# Behavioral Emulation (BE)
 
-The simpleElementExample provides an example element that contains a number of 
-various component types:
+BE is a multi-scale, multi-objective, coarse-grained modeling approach for large-scale system simulation. It provides  timely,  flexible,  and scalable  first-order  estimates  of  application  performance on both existing and future system architectures.
 
-- simpleComponent           : An example of a basic component with event handling.
-                            
-- simpleClockerComponent    : An example of a SST clocking and benchmarking. 
-                            
-- simpleRNGComponent        : Random number generator example
+---
 
-- simpleDistribComponent    : Random number distribution example 
-                            
-- simpleStatisticsComponent : Example on how to build/run statistics in components
-                              along with example of OneShot operation.
-
-- simpleMessageGeneratorComponent : Example of a Messaging Rate benchmark component
+Kumar N., Pascoe C., Hajas C., Lam H., Stitt G., George A. (2016) Behavioral Emulation for Scalable Design-Space Exploration of Algorithms and Architectures. In: Taufer M., Mohr B., Kunkel J. (eds) High Performance Computing. ISC High Performance 2016. Lecture Notes in Computer Science, vol 9945. Springer, Cham. [Link](https://link.springer.com/chapter/10.1007/978-3-319-46079-6_1)
 
