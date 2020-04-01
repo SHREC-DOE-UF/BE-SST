@@ -29,7 +29,7 @@ from random import sample
 # ---------------------- 'Enum'-Like String Definitions --------------------- #
 
 INSTRUCTIONS = """
-  CALL COMM PROG SIMUL INDEP BEGIN ASSIGN ACCESS OBTAIN JUMPLT JUMPGT
+  CALL COMM PROG SIMUL INDEP BEGIN ASSIGN ACCESS OBTAIN OBTARY JUMPLT JUMPGT
   JUMPNL JUMPNG JUMPEQ JUMPNQ ADD SUB MUL DIV MOD INC DEC TARGET PRINT """
 
 TOKENS = """
@@ -113,7 +113,7 @@ IRRELEVANT_TOKENS = [ COMMENT, IGNORE ]
 
 JUMP_INSTRUCTIONS = [ JUMPLT, JUMPNL, JUMPGT, JUMPNG, JUMPEQ, JUMPNQ ]
 USER_ACCESSABLE_INSTRUCTIONS = [ CALL, COMM, PROG, INDEP,
-                                 SIMUL, BEGIN, PRINT, OBTAIN ]
+                                 SIMUL, BEGIN, PRINT, OBTAIN, OBTARY ]
 #                                 ASSIGN, ACCESS ]
 
 COMPARISON_OPERATORS = [ EQUALS, GREATER, LESS,
@@ -132,7 +132,7 @@ STRING_OPERATORS = { "==": operator.eq, "!=": operator.ne,
                      "<=": operator.le, ">=": operator.ge,
                      "<": operator.lt, ">": operator.gt }
 
-UNCACHEABLE_INSTRUCTIONS = [ CALL, COMM, PROG, OBTAIN, INDEP, SIMUL, BEGIN ]
+UNCACHEABLE_INSTRUCTIONS = [ CALL, COMM, PROG, OBTAIN, OBTARY, INDEP, SIMUL, BEGIN ]
 
 # ------------------------ Name Generator Definitions ----------------------- #
 
