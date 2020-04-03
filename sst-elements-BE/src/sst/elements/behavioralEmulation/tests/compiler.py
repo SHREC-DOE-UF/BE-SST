@@ -855,8 +855,8 @@ class Translator(object):
             # No other instructions start with string arguments.
             else:                                   bot = 0
 
-            # Obtains end with a string argument, and no other instructions do.
-            top = 1 if instr.kind == OBTAIN else len(instr.operands)
+            # Obtains and Obtarys end with a string argument, and no other instructions do.
+            top = 1 if instr.kind in [OBTAIN,OBTARY] else len(instr.operands)
 
             # Find the lines in which a given variable is referenced.
             for var in filter(lambda x: type(x)==str, instr.operands[bot:top]):
@@ -865,10 +865,10 @@ class Translator(object):
                 elif var[0] != '"' and var[-1] != '"':
                     references[var] = [instr.line]
 
-            # Something of a hack: registers in 'obtain' instructions are
+            # Something of a hack: registers in 'obtain' and 'obtary' instructions are
             # completely dedicated after the obtain. This prevents issues
             # with registers being overwritten after backwards jumps.
-            if instr.kind == OBTAIN:
+            if instr.kind in [OBTAIN,OBTARY]:
                 references[instr.operands[0]].append(len(self.code))
 
 #            if instr.kind == ACCESS:
@@ -970,6 +970,10 @@ class Translator(object):
 
             # If the function is an obtain, make an intermediate name.
             if routine in [OBTAIN]:
+                terms = [self.rename(terms[0], assign=True)] + terms
+	
+	    # If the function is an obtary, make an intermediate name.
+	    elif routine in [OBTARY]:
                 terms = [self.rename(terms[0], assign=True)] + terms
 
             # For prints: rename all of arguments after the first.
@@ -1249,12 +1253,15 @@ if __name__ == "__main__":
     machinecode = C.compile(code)
 
     # Write out the 'binary' file.
-    with open(args.out, 'w') as binaryMC:
-        pickle.dump(machinecode, binaryMC)
+	
+    if args.out:
 
-    outputFiles.append(args.out)
+        outMCfile = os.path.splitext(args.out)[0] + FILE_EXTENSION_MC
+        with open(outMCfile, 'wb') as binaryMC:
+            binaryMC.write("\n".join([repr(item) for item in machinecode]))
 
-    S.say("Compilation successful: output written to '{}'".format(args.out))
+        outputFiles.append(outMCfile)
+        S.say("Compilation successful: output written to '{}'".format(args.out))
 
 
     # -------------------------- Various Switches --------------------------- #
