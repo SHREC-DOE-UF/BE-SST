@@ -26,7 +26,7 @@ from collections import namedtuple
 
 #import pdb
 
-# Attempt to use the faster cPickle module.
+# Attempt to use the faster cPickle module
 try: import cPickle as pickle
 except: import pickle
 
