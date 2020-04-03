@@ -175,10 +175,10 @@ def PID(prefix):
 
 # Compiler:
 
-FILE_EXTENSION_COMPILED = ".smc"
+FILE_EXTENSION_COMPILED = ".smc.txt"
 FILE_EXTENSION_AST = ".ast.txt"
 FILE_EXTENSION_IR = ".ir.txt"
-FILE_EXTENSION_MC = ".smc.txt"
+FILE_EXTENSION_MC = ".txt"
 FILENAME_DEFAULT = "out"
 
 # Simulator:
