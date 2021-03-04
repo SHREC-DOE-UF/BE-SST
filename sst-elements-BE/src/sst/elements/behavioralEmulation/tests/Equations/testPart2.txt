@@ -1,0 +1,3 @@
+# test equation for trace driven simulation - create_ghost_particles 
+parameters=gc
+equation=("add(mul(gc,1),1)")

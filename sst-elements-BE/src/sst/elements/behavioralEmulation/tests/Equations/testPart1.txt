@@ -1,0 +1,3 @@
+# test equation for trace driven simulation - update_particles_location
+parameters=pc
+equation=("add(mul(pc,1),1)")

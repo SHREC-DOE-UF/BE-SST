@@ -1,0 +1,3 @@
+# test equation for trace driven simulation - rk3_integrate 
+parameters=pc
+equation=("add(mul(pc,2),2)")

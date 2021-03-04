@@ -1,0 +1,3 @@
+# test equation for trace driven simulation -bary_interp_props_part_location 
+parameters=epp,es,pc
+equation=("add(mul(mul(add(es,1),epp),0.01),pc)")

@@ -1,0 +1,20 @@
+#This simple software describes a single communication operation to a single target (component 0, gid 1) with blocking send and blocking receive primitives(modelled in the operation configuration file)
+
+obtain(app.transferSize)
+obtain(app.elementSize)
+obtain(app.elementPerProcessor)
+obtain(app.particleCount)
+obtain(mpi.commRank)
+obtain(mpi.commSize)
+
+IF (mpi.commRank != 0) {
+    comm(send, app.transferSize, 0, 23) 
+}
+
+IF (mpi.commRank == 0) {
+    FOR (cid, [1, 2, 3, 4, 5, 6, 7] ) {
+	call(cpu, wait, app.transferSize, cid, 23)
+    }
+
+    call(cpu, computeA, app.elementPerProcessor, app.elementSize, app.particleCount)
+}

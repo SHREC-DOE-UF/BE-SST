@@ -1,0 +1,19 @@
+(000) obtain :: r`00 app.transferSize
+(001) obtain :: r`01 app.elementSize
+(002) obtain :: r`02 app.elementPerProcessor
+(003) obtain :: r`03 app.particleCount
+(004) obtain :: r`04 mpi.commRank
+(005) obtain :: r`05 mpi.commSize
+(006) jumpeq :: r`04 0 (008)
+(007)   comm :: send r`00 0 23
+(008) target :: (006)
+(009) jumpnq :: r`04 0 (018)
+(010) assign :: r`06 0
+(011) target :: (016)
+(012) assign :: r`07 [1,2,3,4,5,6,7]
+(013) access :: r`08 r`07 r`06
+(014)   call :: cpu wait r`00 r`08 23
+(015)    inc :: r`06
+(016) jumplt :: r`06 7 (011)
+(017)   call :: cpu computeA r`02 r`01 r`03
+(018) target :: (009)
