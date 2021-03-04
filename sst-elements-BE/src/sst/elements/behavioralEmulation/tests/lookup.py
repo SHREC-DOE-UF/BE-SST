@@ -501,26 +501,31 @@ def lookupEquation(equation, input1):
     
     equation_new = "Equations/"+equation
     fp = open(equation_new,'r')
-    equation_expression = str(fp.read())
-    #print ("equation")
-    #print (equation_expression)
-    alpha = 1
-    lx1 = 17
-    lelt = 32
-    #print ("alpha")
-    #print (alpha)
-    #print ("lx1")
-    #print (lx1)
-    #print ("lelt")
-    #print (lelt)
-    rank = round(np.random.uniform(0.01,1),2)
+    # equation_expression = str(fp.read())
+    length = len(input1)
 
-    #es=int(i_scheme) #leave space before and after = 
-    es = 11
-    epp = 64
+    lines = fp.read().splitlines()
 
-    #print("es=" , es , "     epp=" , epp)
+    for l in lines:
+        if len(l) != 0:
+            if l[0] != '#':
+                variable=l.split("=")
+                if variable[0] == "Parameters" or variable[0] == "parameters" or variable[0] == "PARAMETERS":
+                    params = variable[1].split(",")
+                elif variable[0] == "Equation" or variable[0] == "equation" or variable[0] == "EQUATION":
+                    equation_expression = variable[1]
+        
+    # print(params)
+    # print(equation_expression)
 
+    if len(params) != len(input1):
+        print ("Number of app parameters in " +equation+ " file does not match AppBEO")
+        exit()
+
+    for x in range(length):
+        equation_expression = equation_expression.replace(params[x],str(input1[x]))
+
+    #print(equation_expression)
 
     '''arguments = {'lelt':0,'lx1':0,'alpha':0,'d':0,'e':0,'f':0,'g':0,'h':0,'i':0,'j':0}
     list_arguments = ['lelt','lx1','alpha','d','e','f','g','h','i','j']
@@ -544,14 +549,16 @@ if __name__ == "__main__":
     # Perform tests on a few files to make sure things roughly work:
 
     print lookupValue("vulcan-compute-conv.csv", [17, 256], "polynomial-4")[0]
-    print lookupValue("fft-dummy.csv", [100, 100], "polynomial-2")[0]
+    print lookupValue("fft-dummy.csv", [128, 128], "polynomial-2")[0]
     print lookupValue("fft-dummy.csv", [99, 10], "linear")[0]
-    print lookupValue("transfer-dummy-A.csv", [999], "lagrange")[0]
-    print lookupValue("transfer-dummy-A.csv", [10], "polynomial-3")[0]
+#    print lookupValue("transfer-dummy-A.csv", [999], "lagrange")[0]
+#    print lookupValue("transfer-dummy-A.csv", [10], "polynomial-3")[0]
 
     print lookupValue("transfer-dummy-B.csv", [79], "linear")[0]
-    print lookupValue("transfer-dummy-B.csv", [10], "polynomial")[0]
+#    print lookupValue("transfer-dummy-B.csv", [10], "polynomial")[0]
+    print lookupEquation("testPart1.txt", [10])[0]
+    print lookupEquation("testPart3.txt", [64,9,10])[0]
 
-
+#polynomial interpolation needs to be checked
 
 
